@@ -76,7 +76,7 @@ const LandingPage = ({transitionStatus, location, entry, exit, data }) => {
             William Martinsson
           </h1>
           <h1 className='desktop'>
-            <strong>William Martinsson,</strong> A Digital Designer with a
+            <strong>William Martinson,</strong> A Digital Designer with a
             passion for technology. Currently in Sweden
           </h1>
         </IntroContainer>
