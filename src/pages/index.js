@@ -1,86 +1,168 @@
 import React, { useEffect } from "react"
 import styled from 'styled-components';
+import Flickity from "react-flickity-component"
 import { breakpoint } from "../mixins/breakpoint"
 import PageWrapper from "../components/PageWrapper";
 import ProjectSlider from "../components/ProjectSlider";
 import '../scss/main.scss';
-import { animated, useSpring } from "react-spring";
+import { animated, useSpring, useSprings } from "react-spring";
+import ProjectCard from "../components/ProjectCard";
+import { colors } from "../mixins/colors";
+import ContactBanner from "../components/ContactBanner";
 
 const IntroContainer = styled(animated.div)`
-  height: 55%;
   display: flex;
   flex-direction: column;
   position: relative;
   justify-content: center;
+  margin-bottom: 6.4rem;
 
   ${breakpoint.tabPort`
-    height: 55vh;
+    margin-bottom: 14rem;
   `}
-
-  .phone {
-    /* font-size: ${window.innerHeight > 600 ? `48px` : "32px"}; */
-    font-size: 4.8rem;
-    line-height: 100%;
-    font-weight: 400;
-    text-align: left;
-    margin-bottom: 1rem;
-    margin-top: 3.2vh;
-
-    ${breakpoint.phone`
-      display: none;
-    `}
-  }
 
   h1 {
     font-size: 2.4rem;
-    font-weight: 300;
+    font-weight: 400;
     text-align: left;
-    line-height: 130%;
+    line-height: 180%;
+    color: #f8f8f8;
 
-    ${breakpoint.phone`
-      margin-top: 7vh;
-      font-size: 4.2rem;
-      font-weight: 300;
-      max-width: 89.7rem;
-      text-align: left;
-    `}
-
-    ${breakpoint.desktop`
-      font-size: 2.5vw;
-      max-width: 56vw;
+    ${breakpoint.tabPort`
+      font-size: 3.5vw;
     `}
 
     strong {
-      font-size: 4.8rem;
       font-weight: 400;
-      display: none;
-
-      ${breakpoint.phone`
-        display: block;
-      `}
-
-      ${breakpoint.desktop`
-        font-size: 3.5vw;
-      `}
+      color: #e63a2e;
     }
   }
 `
 
+const ProjectsContainer = styled.div`
+  position: relative;
+  padding-bottom: 10rem;
+
+  ${breakpoint.tabPort`
+  `}
+
+  .desktop {
+    display: none;
+
+    ${breakpoint.tabPort`
+      grid-template-columns: repeat(12, 1fr);
+      grid-column-gap: 1.6rem;
+      display: grid;
+    `}
+  }
+
+  .mobile {
+    overflow: hidden;
+
+    button {
+      display: none;
+    }
+    ol {
+      display: none;
+    }
+
+    ${breakpoint.tabPort`
+      display: none;
+    `}
+  }
+
+  span {
+    font-size: 2.4rem;
+    position: absolute;
+    color: ${colors.textWhite};
+    transform: rotate(-90deg);
+    left: -131px;
+    top: 82px;
+    font-weight: 300;
+  }
+`
+
 const LandingPage = ({transitionStatus, location, entry, exit, data }) => {
+  const projects = data.allPrismicProject.edges;
   const slideText = useSpring({config: {friction: 35}, from: {opacity: 0, transform: 'translateY(100px)'}, to:{opacity: 1, transform: 'translateY(0px)'}, delay: 500})
+  const slideProjectText = useSpring({config: {friction: 35}, from: {opacity: 0, transform: 'translateY(100px) rotate(-90deg)'}, to:{opacity: 1, transform: 'translateY(0px) rotate(-90deg)'}, delay: 2000})
+  const slideInCards = useSprings(
+    projects.length,
+    projects.map((item, index) => ({
+      config: { friction: 45 },
+      from: { transform: "scale(1,1)" },
+      to: { transform: "scale(1,0)" },
+      delay: 800 + 300 * index,
+    }))
+  )
 
   return (
-    <PageWrapper outerWrapperStyle={{position: 'fixed', height:'100%'}} style={{ display: 'flex', flexDirection:'column', justifyContent: 'space-between', paddingTop: 0}} location={location} fixedHeight transitionActive={transitionStatus}>
-        <IntroContainer style={slideText}>
-          <h1 className='phone'>
-            William Martinsson
-          </h1>
-          <h1 className='desktop'>
-            <strong>William Martinson,</strong> A Digital Designer with a
-            passion for technology. Currently in Sweden
-          </h1>
-        </IntroContainer>
-        <ProjectSlider projects={data.allPrismicProject.edges} />
+    <PageWrapper
+      outerWrapperStyle={{ background: "#000" }}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        background: "#000",
+      }}
+      location={location}
+      fixedHeight
+      transitionActive={transitionStatus}
+    >
+      <IntroContainer style={(slideText, { gridColumn: "span 12" })}>
+        <h1>
+          Vi är din <strong>design</strong> och <strong>utvecklings</strong>{" "}
+          partner. Vi tar digitala produkter från ide till lansering och framåt.
+          Vare sig det är en e-shop, hemsida, app eller något helt annat.
+        </h1>
+      </IntroContainer>
+      <ProjectsContainer>
+        <animated.span style={{...slideProjectText}}>Utvalda Projekt</animated.span>
+        <div className="desktop">
+          {slideInCards.map((style, index) => (
+            <ProjectCard
+              outsideOfWebsite={false}
+              index={index}
+              style={style}
+              link={projects[index].node.uid}
+              title={projects[index].node.data.project_name.text}
+              image={
+                projects[index].node.data.thumbnail_image.localFile
+                  .childImageSharp.fluid
+              }
+              category={projects[index].node.data.category.text}
+            />
+          ))}
+        </div>
+        <div className="mobile">
+          <Flickity 
+            className={'slider'} // default ''
+            elementType={'section'} // default 'div'
+            // takes flickity options {}
+            disableImagesLoaded={false} // default false
+            reloadOnUpdate // default false
+            static={true} // default false
+            options={{initialIndex: 0, cellAlign: 'left'}}
+            cellAlign = {'left'}
+          >
+            {slideInCards.map((style, index) => (
+              <ProjectCard
+                outsideOfWebsite={false}
+                index={index}
+                style={style}
+                link={projects[index].node.uid}
+                title={projects[index].node.data.project_name.text}
+                image={
+                  projects[index].node.data.thumbnail_image.localFile
+                    .childImageSharp.fluid
+                }
+                category={projects[index].node.data.category.text}
+              />
+            ))}
+          </Flickity>
+        </div>
+      </ProjectsContainer>
+      <ContactBanner />
     </PageWrapper>
   )
 }
@@ -88,7 +170,7 @@ const LandingPage = ({transitionStatus, location, entry, exit, data }) => {
 export const query = graphql`
   {
     allPrismicProject(
-      filter: { tags: { eq: "featured" } }
+      filter: { tags: { eq: "ohhi" } }
       sort: { fields: data___order }
     ) {
       edges {

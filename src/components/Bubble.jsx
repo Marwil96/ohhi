@@ -15,7 +15,7 @@ export const Bubble = styled(animated.button)`
   right: 1.6rem;
 
   border-radius: 100%;
-  background-color: ${colors.orange};
+  background-color: ${colors.brightRed};
   display: flex;
   justify-content: center;
   align-items: center;

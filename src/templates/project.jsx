@@ -10,9 +10,9 @@ import ProjectHeader from "../components/ProjectHeader";
 import Img from "gatsby-image";
 import { Bubble } from "../components/Bubble";
 import RichText from "../components/RichText";
-import Footer from "../components/Footer";
 import { useSpring, animated } from "react-spring"
 import SEO from "../components/SEO";
+import ContactBanner from "../components/ContactBanner";
 
 const ImageWrapper = styled.div`
   margin-bottom: 4.8rem;
@@ -56,21 +56,22 @@ const Introduction = styled(animated.h3)`
 `
 
 const NextProject = styled.section`
-  width: 100%;
   background-color: #131313;
-  padding: 6.4rem 0;
+  padding: 4.8rem 1.6rem;
+  width: calc(100% + 3.2rem);
+  margin-left: -1.6rem;
   display: flex;
   flex-direction: column;
-  position: relative;
-  margin-bottom: 6.4rem;
+  /* margin-bottom: 6.4rem; */
+
+  ${breakpoint.tabPort`
+    flex-direction: row;
+    padding: 4.8rem 10rem;
+    width: calc(100% + 20rem);
+    margin-left: -10rem;
+  `}
 
   div {
-    position: absolute;
-    width: 100vw;
-    margin-left: -1.6rem;
-    background-color: black;
-    height: 100%;
-    margin-top: -6.4rem;
     z-index: 0;
   }
 
@@ -110,11 +111,9 @@ const NextProject = styled.section`
   }
 
   ${breakpoint.tabPort`
-    padding: 14rem 0;
+    padding: 14rem 10rem;
 
     div {
-      margin-left: -10rem;
-      margin-top: -14rem;
     }
 
     span {
@@ -131,7 +130,7 @@ const HeroMask = styled(animated.div)`
 
 `
 
-const Project = ({data, transitionStatus}) => {
+const Project = ({data, transitionStatus, location}) => {
   const content = data.prismicProject.data;
   const [nextProject, setNextProject] = useState({slug: '', name:''})
 
@@ -154,6 +153,7 @@ const Project = ({data, transitionStatus}) => {
       style={{ display: "flex", flexDirection: "column" }}
       outerWrapperStyle={{ height: "auto" }}
       transitionActive={transitionStatus}
+      location={location}
     >
       <SEO
         title={`${content.project_name.text} - ${content.title.text}`}
@@ -220,7 +220,6 @@ const Project = ({data, transitionStatus}) => {
         })}
       </ContentWrapper>
       <NextProject>
-        <div> </div>
         <span>Next Project</span>
         <TransitionLink
           to={`/projects/${nextProject.slug}`}
@@ -230,7 +229,7 @@ const Project = ({data, transitionStatus}) => {
           {nextProject.name}
         </TransitionLink>
       </NextProject>
-      <Footer />
+      <ContactBanner />
     </PageWrapper>
   )
 }

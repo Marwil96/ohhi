@@ -4,19 +4,26 @@ import React from 'react';
 import { animated, useSpring } from "react-spring"
 import styled from "styled-components"
 import { breakpoint } from "../mixins/breakpoint"
+import { colors } from '../mixins/colors';
 
 const ProjectCardWrapper = styled.a`
-  grid-column: span 12;
+  /* grid-column: span 12; */
   display: flex;
   flex-direction: column;
   margin-bottom: 6.4rem;
+  width: 80%;
+  margin-right: 3.2rem;
 
   ${breakpoint.tabPort`
     grid-column: span 6;
+    margin-right: 0;
+    width: initial;
   `}
 
   ${breakpoint.laptop`
-   grid-column: span 4;
+    grid-column: span 4;
+    margin-right: 0;
+    width: initial;
   `}
 `
 
@@ -42,17 +49,17 @@ const ProjectTitle = styled(animated.h1)`
 `
 
 const Label = styled(animated.h5)`
-  font-size: 1.2rem;
-  font-style: italic;
-  font-weight: 400;
+  font-size: 2rem;
+  font-weight: 300;
   /* margin-bottom: 1.2rem; */
   text-transform: uppercase;
   /* color: #464646; */
   line-height: 180%;
   max-width: 70%;
+  color: ${colors.textWhite};
 
   ${breakpoint.tabPort`
-    font-size: 1.4rem;
+    font-size: 2rem;
   `}
 `
 
@@ -88,7 +95,7 @@ const ProjectCard = ({image, title, category, type, style, index, link, outsideO
               height: "100%",
               width: "101%",
               position: "absolute",
-              background: "white",
+              background: "black",
               transformOrigin: "top",
               zIndex: 1,
               ...style,
@@ -100,7 +107,6 @@ const ProjectCard = ({image, title, category, type, style, index, link, outsideO
             </animated.div>
           </div>
         </ImageWrapper>
-        <ProjectTitle style={slideTitle}>{title}</ProjectTitle>
         <animated.div
           style={{
             display: "flex",
@@ -108,8 +114,8 @@ const ProjectCard = ({image, title, category, type, style, index, link, outsideO
             ...slideCategory,
           }}
         >
-          <Label>{category}</Label>
-          <Label>{role}</Label>
+          <Label>{title}</Label>
+          <Label>2020</Label>
         </animated.div>
       </TransitionLink>
     </ProjectCardWrapper>

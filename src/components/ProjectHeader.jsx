@@ -8,7 +8,7 @@ const ProjectHeaderWrapper = styled.section`
   flex-direction: column;
   width: 100%;
   margin-bottom: 2.4rem;
-  padding-top: 3.2rem;
+  padding-top: 0rem;
 
   ${breakpoint.tabPort`
     margin-bottom: 6.4rem;
