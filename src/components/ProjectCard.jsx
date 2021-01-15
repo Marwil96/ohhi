@@ -10,7 +10,7 @@ const ProjectCardWrapper = styled.a`
   /* grid-column: span 12; */
   display: flex;
   flex-direction: column;
-  margin-bottom: 6.4rem;
+  margin-bottom: 0rem;
   width: 80%;
   margin-right: 3.2rem;
 
@@ -18,6 +18,7 @@ const ProjectCardWrapper = styled.a`
     grid-column: span 6;
     margin-right: 0;
     width: initial;
+    margin-bottom: 6.4rem;
   `}
 
   ${breakpoint.laptop`

@@ -69,6 +69,8 @@ const NextProject = styled.section`
     padding: 4.8rem 10rem;
     width: calc(100% + 20rem);
     margin-left: -10rem;
+    display: flex;
+    flex-direction: column;
   `}
 
   div {

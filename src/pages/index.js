@@ -58,6 +58,7 @@ const ProjectsContainer = styled.div`
 
   .mobile {
     overflow: hidden;
+    margin-top: 2rem;
 
     button {
       display: none;
@@ -68,17 +69,26 @@ const ProjectsContainer = styled.div`
 
     ${breakpoint.tabPort`
       display: none;
+      margin-top: 0rem;
     `}
   }
 
   span {
-    font-size: 2.4rem;
-    position: absolute;
+    font-size: 2rem;
     color: ${colors.textWhite};
     transform: rotate(-90deg);
-    left: -131px;
-    top: 82px;
     font-weight: 300;
+    margin-bottom: 2rem;
+
+    ${breakpoint.tabPort`
+      position: absolute;
+      font-size: 2.4rem;
+      color: ${colors.textWhite};
+      transform: rotate(-90deg);
+      left: -131px;
+      top: 82px;
+      margin-bottom: 0 rem;
+    `}
   }
 `
 
