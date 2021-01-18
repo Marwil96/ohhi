@@ -29,7 +29,7 @@ const ProjectCardWrapper = styled.a`
 `
 
 const ImageWrapper = styled.div`
-  margin-bottom: 2.2rem;
+  margin-bottom: 1.6rem;
   position: relative;
 
   ${breakpoint.tabPort`
@@ -51,7 +51,7 @@ const ProjectTitle = styled(animated.h1)`
 
 const Label = styled(animated.h5)`
   font-size: 2rem;
-  font-weight: 300;
+  font-weight: 400;
   /* margin-bottom: 1.2rem; */
   text-transform: uppercase;
   /* color: #464646; */

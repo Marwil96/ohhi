@@ -24,7 +24,7 @@ const ContactBannerWrapper = styled.section`
   h3 {
     font-size: 2.4rem;
     margin-bottom: 1.2rem;
-    font-weight: 500;
+    font-weight: 600;
 
     ${breakpoint.tabPort`
       font-size: 3.2rem;
@@ -74,7 +74,7 @@ const ContactBannerWrapper = styled.section`
 
   h2 {
     text-align: right;
-    font-size: 2.4rem;
+    font-size: 3.2rem;
     margin-bottom: 1.6rem;
     font-weight: 400;
   }
@@ -82,7 +82,7 @@ const ContactBannerWrapper = styled.section`
   .office_time {
     text-align: right;
     font-size: 6.4rem;
-    font-weight: 400;
+    font-weight: 600;
     margin-bottom: 0;
     line-height: initial;
   }

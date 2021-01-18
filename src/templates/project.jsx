@@ -88,7 +88,6 @@ const NextProject = styled.section`
   a {
     color: white;
     font-size: 3.2rem;
-    font-style: italic;
     font-weight: 400;
     z-index: 10;
     position: relative;

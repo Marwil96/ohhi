@@ -16,7 +16,7 @@ const RichTextWrapper = styled.section`
   h5,h4,h3,h1,h2 {
     margin-bottom: 0.6rem;
     line-height: 150%;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 2.4rem;
 
     ${breakpoint.tabPort`
@@ -27,7 +27,6 @@ const RichTextWrapper = styled.section`
 
   h1 {
     font-size: 1.6rem;
-    font-style: italic;
     font-weight: 400;
     margin-bottom: 1.2rem;
     text-transform: uppercase;
@@ -48,7 +47,7 @@ const RichTextWrapper = styled.section`
     margin-bottom: 2.4rem;
     line-height: 32px;
     font-size: 1.8rem;
-    font-weight: 300;
+    font-weight: 400;
 
     ${breakpoint.tabPort`
       line-height: 40px;

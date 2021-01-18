@@ -72,7 +72,6 @@ const TextItem = styled.div`
 
 const SectionTitle = styled.h5`
   font-size: 1.6rem;
-  font-style: italic;
   font-weight: 400;
   text-transform: uppercase;
   color: #464646;

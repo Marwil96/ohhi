@@ -48,7 +48,7 @@ const MetaItem = styled(animated.div)`
 
   span {
     font-size: 1.6rem;
-    font-weight: 300;
+    font-weight: 400;
     margin-bottom: 0.5rem;
   }
 
@@ -63,7 +63,6 @@ const MetaItem = styled(animated.div)`
 
     span {
       font-size: 1.8rem;
-      font-style: italic;
       margin-bottom: 0.8rem;
     }
 

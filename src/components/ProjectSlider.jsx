@@ -107,7 +107,6 @@ const ProjectTitle = styled.h1`
   ${breakpoint.tabPort`
     margin-top: -2.5vh;
     text-align: left;
-    font-style: italic;
     font-size: 6.4rem;
     width: fit-content;
     

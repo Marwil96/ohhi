@@ -77,7 +77,7 @@ const ProjectsContainer = styled.div`
     font-size: 2rem;
     color: ${colors.textWhite};
     transform: rotate(-90deg);
-    font-weight: 300;
+    font-weight: 400;
     margin-bottom: 2rem;
 
     ${breakpoint.tabPort`
@@ -144,6 +144,7 @@ const LandingPage = ({transitionStatus, location, entry, exit, data }) => {
             />
           ))}
         </div>
+        {typeof window !== 'undefined' && window.innerWidth < 901 ?
         <div className="mobile">
           <Flickity 
             className={'slider'} // default ''
@@ -169,7 +170,7 @@ const LandingPage = ({transitionStatus, location, entry, exit, data }) => {
               />
             ))}
           </Flickity>
-        </div>
+        </div> : ''}
       </ProjectsContainer>
       <ContactBanner />
     </PageWrapper>

@@ -29,6 +29,14 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Lato\:300,400,500,600,700`, // you can also specify font weights and styles
+        ],
+      },
+    },
+    {
       resolve: "gatsby-plugin-simple-analytics",
       options: {
         trackPageViews: true,
