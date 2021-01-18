@@ -55,10 +55,17 @@ const ProjectsContainer = styled.div`
       display: grid;
     `}
   }
+  
 
   .mobile {
     overflow: hidden;
     margin-top: 2rem;
+
+    .slider {
+      &:focus {
+        outline: none;
+      }
+    }
 
     button {
       display: none;
