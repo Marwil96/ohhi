@@ -150,7 +150,6 @@ const LandingPage = ({transitionStatus, location, entry, exit, data }) => {
             elementType={'section'} // default 'div'
             // takes flickity options {}
             disableImagesLoaded={false} // default false
-            reloadOnUpdate // default false
             static={true} // default false
             options={{initialIndex: 0, cellAlign: 'left'}}
             cellAlign = {'left'}
@@ -180,7 +179,7 @@ const LandingPage = ({transitionStatus, location, entry, exit, data }) => {
 export const query = graphql`
   {
     allPrismicProject(
-      filter: { tags: { eq: "ohhi" } }
+      filter: { tags: { eq: "ohhi" } lang: {eq: "sv-se"} }
       sort: { fields: data___order }
     ) {
       edges {

@@ -42,7 +42,7 @@ const PageWrapper = ({ children, location, style, outerWrapperStyle, transitionA
     <OuterWrapper style={{background:  transitionActive === 'entering' ||  transitionActive === 'exiting' ? location.pathname !== undefined ? "black" : "white" : location.pathname !== undefined ? "white" : "black", ...outerWrapperStyle}}>
       {/* <Noise /> */}
       <SEO
-        title="William Martinsson - Digital Designer - Frontend Developer"
+        title="Oh, Hi - Webbbyrå - Design Studio - Skövde"
         description="Hey, I'm William Martinsson. I'm a creator of websites, apps, and digital products. Sometimes I develop them other times I design them but usually, I do both. Currently freelancing from my home in the middle of Sweden."
       />
       <NavBar />

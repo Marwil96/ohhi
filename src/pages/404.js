@@ -1,10 +1,10 @@
 import React from 'react';
 import PageWrapper from '../components/PageWrapper';
 
-const ErrorPage = () => {
+const ErrorPage = ({ transitionStatus, location }) => {
   return (
-    <PageWrapper>
-      <h3>Yo 404</h3>
+    <PageWrapper transitionActive={transitionStatus} location={location}>
+      <span>404 Sida inte hittad.</span>
     </PageWrapper>
   )
 }

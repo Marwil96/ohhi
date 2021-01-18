@@ -74,9 +74,9 @@ const ContactBannerWrapper = styled.section`
 
   h2 {
     text-align: right;
-    font-size: 3.2rem;
+    font-size: 2.4rem;
     margin-bottom: 1.6rem;
-    font-weight: 500;
+    font-weight: 400;
   }
 
   .office_time {
