@@ -56,7 +56,7 @@ const Introduction = styled(animated.h3)`
 `
 
 const NextProject = styled.section`
-  background-color: #131313;
+  background-color: #000;
   padding: 4.8rem 1.6rem;
   width: calc(100% + 3.2rem);
   margin-left: -1.6rem;
