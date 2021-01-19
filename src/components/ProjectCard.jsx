@@ -6,7 +6,7 @@ import styled from "styled-components"
 import { breakpoint } from "../mixins/breakpoint"
 import { colors } from '../mixins/colors';
 
-const ProjectCardWrapper = styled.a`
+const ProjectCardWrapper = styled.div`
   /* grid-column: span 12; */
   display: flex;
   flex-direction: column;
@@ -83,7 +83,7 @@ const ProjectCard = ({image, title, category, type, style, index, link, outsideO
 
   
   return (
-    <ProjectCardWrapper href={outsideOfWebsite ? outsideOfWebsite : false} target='__blank'>
+    <ProjectCardWrapper>
       <TransitionLink
         to={outsideOfWebsite ? false : `/projects/${link}`}
         exit={{ length: 0.5 }}
