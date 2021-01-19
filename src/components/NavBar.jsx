@@ -58,6 +58,12 @@ const NavBarWrapper = styled.section`
 const NavBarTitle = styled.h1`
   font-size: 1.6rem;
   font-weight: 400;
+  transition: color 450ms ease;
+  cursor: pointer;
+
+  &:hover {
+    color: #ffd8d8;
+  }
 
   ${breakpoint.tabPort`
     font-size: 2.4rem;
@@ -78,8 +84,14 @@ const ContactWrapper = styled.div`
 
   a {
     text-align: right;
-     font-size: 1.6rem;
-     
+    font-size: 1.6rem;
+    transition: color 450ms ease;
+    cursor: pointer;
+
+    &:hover {
+      color: #ffd8d8;
+    }
+
     &:first-child {
       margin-bottom: 1.2rem;
     }
@@ -96,6 +108,19 @@ const LogoContainer = styled.div`
   flex: 0.3;
   display: flex;
   justify-content: flex-start;
+
+  svg {
+    path {
+      transition: fill 450ms ease;
+    }
+    cursor: pointer;
+
+    &:hover {
+      path {
+        fill: #ffd8d8;
+      }
+    }
+  }
 
   ${breakpoint.tabPort`
      justify-content: center;

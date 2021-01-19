@@ -11,10 +11,10 @@
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: `William Martinsson | Digital Designer`,
-    description: `William Martinsson`,
+    title: `Webbyrå OHHI i Skövde – Din partner för lyckade webbprojekt.`,
+    description: `OHHI`,
     author: `@William Martinsson`,
-    siteUrl: `https://williammartinsson.com`,
+    siteUrl: `https://ohhi.se`,
   },
   plugins: [
     {

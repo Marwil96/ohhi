@@ -33,7 +33,7 @@ const ImageWrapper = styled.div`
   position: relative;
 
   ${breakpoint.tabPort`
-    margin-bottom: 2.4rem;
+    margin-bottom: 1.6rem;
     margin-left: none;
   `}
 `

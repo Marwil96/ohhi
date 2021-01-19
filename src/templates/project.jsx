@@ -136,10 +136,10 @@ const Project = ({data, transitionStatus, location}) => {
   const [nextProject, setNextProject] = useState({slug: '', name:''})
 
   useEffect(() => {
-    if(content.project_name.text === 'KNVB Rinus') setNextProject({slug: "master-digital-design", name:'Amsterdam University'})
-    else if(content.project_name.text === 'Amsterdam University') setNextProject({ slug: "agenly", name: "Agenly" })
-    else if(content.project_name.text === 'Agenly') setNextProject({ slug: "knodd", name: "Knodd" })
-    else {setNextProject({ slug: "knvb-rinus", name: "KNVB Rinus" })}
+    if(content.project_name.text === 'Knodd') setNextProject({slug: "agenly-se", name:'Agenly'})
+    else if(content.project_name.text === 'Agenly') setNextProject({ slug: "karygen-health-se", name: "Karygen Health" })
+    else if(content.project_name.text === 'Karygen Health') setNextProject({ slug: "knodd-se", name: "Knodd" })
+    else {setNextProject({ slug: "knodd-se", name: "Knodd" })}
   }, [])
 
    const heroMaskSpring = useSpring({config: {friction: 35}, from: {transform: 'scale(1,1)'}, to:{ transform: 'scale(1,0)'}, delay: 1600})
@@ -174,7 +174,7 @@ const Project = ({data, transitionStatus, location}) => {
             window.open(`${content.link_to_website.url}`, "_blank")
           }
         >
-          Visit Website
+          Besök Hemsidan
         </Bubble>
         <HeroMask
           className="mask"

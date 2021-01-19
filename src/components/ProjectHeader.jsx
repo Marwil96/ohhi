@@ -55,6 +55,7 @@ const MetaItem = styled(animated.div)`
   h3 {
     font-size: 1.8rem;
     font-weight: 400;
+    line-height: 150%;
   }
 
   ${breakpoint.tabPort`

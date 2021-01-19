@@ -40,10 +40,9 @@ const PageWrapper = ({ children, location, style, outerWrapperStyle, transitionA
   // const [props, set, stop] = useSpring(() => ({config: { duration: 250 }, opacity: transitionActive ? 0 : 1 }))
   return (
     <OuterWrapper style={{background:  transitionActive === 'entering' ||  transitionActive === 'exiting' ? location.pathname !== undefined ? "black" : "white" : location.pathname !== undefined ? "white" : "black", ...outerWrapperStyle}}>
-      {/* <Noise /> */}
       <SEO
-        title="Oh, Hi - Webbbyrå - Design Studio - Skövde"
-        description="Hey, I'm William Martinsson. I'm a creator of websites, apps, and digital products. Sometimes I develop them other times I design them but usually, I do both. Currently freelancing from my home in the middle of Sweden."
+        title="Webbyrå OHHI i Skövde – Din partner för lyckade webbprojekt."
+        description="Webbyrå Skövde – Vi hjälper dig att ta digitala produkter från ide till lansering och framåt. Vare sig det är en e-shop, hemsida, app eller något helt annat"
       />
       <NavBar />
       <InnerWrapper style={{ 

@@ -1,15 +1,16 @@
 import React, { useEffect } from "react"
-import styled from 'styled-components';
+import styled from "styled-components"
 import Flickity from "react-flickity-component"
 import { breakpoint } from "../mixins/breakpoint"
-import PageWrapper from "../components/PageWrapper";
-import ProjectSlider from "../components/ProjectSlider";
-import '../scss/main.scss';
-import { animated, useSpring, useSprings } from "react-spring";
-import ProjectCard from "../components/ProjectCard";
-import { colors } from "../mixins/colors";
-import ContactBanner from "../components/ContactBanner";
-import { graphql } from "gatsby";
+import PageWrapper from "../components/PageWrapper"
+import ProjectSlider from "../components/ProjectSlider"
+import "../scss/main.scss"
+import { animated, useSpring, useSprings } from "react-spring"
+import ProjectCard from "../components/ProjectCard"
+import { colors } from "../mixins/colors"
+import ContactBanner from "../components/ContactBanner"
+import { graphql } from "gatsby"
+import SEO from "../components/SEO"
 
 const IntroContainer = styled(animated.div)`
   display: flex;
@@ -23,6 +24,13 @@ const IntroContainer = styled(animated.div)`
   `}
 
   h1 {
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: #e63a2e;
+    margin-bottom: 1.6rem;
+  }
+
+  h2 {
     font-size: 2.4rem;
     font-weight: 400;
     text-align: left;
@@ -56,7 +64,6 @@ const ProjectsContainer = styled.div`
       display: grid;
     `}
   }
-  
 
   .mobile {
     overflow: hidden;
@@ -100,17 +107,29 @@ const ProjectsContainer = styled.div`
   }
 `
 
-const LandingPage = ({transitionStatus, location, entry, exit, data }) => {
+const CityTemplate = ({ transitionStatus, location, entry, exit, data, pageContext }) => {
+  console.log('doto', data)
   const projects = data.allPrismicProject.edges;
-  const slideText = useSpring({config: {friction: 35}, from: {opacity: 0, transform: 'translateY(100px)'}, to:{opacity: 1, transform: 'translateY(0px)'}, delay: 500})
-  const slideProjectText = useSpring({config: {friction: 35}, from: {opacity: 0, transform: 'translateY(100px) rotate(-90deg)'}, to:{opacity: 1, transform: 'translateY(0px) rotate(-90deg)'}, delay: 500})
+
+  const slideText = useSpring({
+    config: { friction: 35 },
+    from: { opacity: 0, transform: "translateY(100px)" },
+    to: { opacity: 1, transform: "translateY(0px)" },
+    delay: 500,
+  })
+  const slideProjectText = useSpring({
+    config: { friction: 35 },
+    from: { opacity: 0, transform: "translateY(100px) rotate(-90deg)" },
+    to: { opacity: 1, transform: "translateY(0px) rotate(-90deg)" },
+    delay: 2000,
+  })
   const slideInCards = useSprings(
     projects.length,
     projects.map((item, index) => ({
       config: { friction: 45 },
       from: { transform: "scale(1,1)" },
       to: { transform: "scale(1,0)" },
-      delay: 500 + 300 * index,
+      delay: 800 + 300 * index,
     }))
   )
 
@@ -127,21 +146,27 @@ const LandingPage = ({transitionStatus, location, entry, exit, data }) => {
       fixedHeight
       transitionActive={transitionStatus}
     >
+      <SEO
+        title={`Webbyrån OHHI i ${pageContext.city} – Din design och utvecklings partner.`}
+        description={`Webbyrå OHHI – Vi hjälper stora som små företag att lyckas på webben genom digital kommunikation, teknik och design. Oavsett om det är en e-shop, hemsida, app eller något helt annat.`}
+      />
       <IntroContainer style={(slideText, { gridColumn: "span 12" })}>
-        <h1>
-          Vi är din <strong>design</strong> och <strong>utvecklings</strong>{" "}
-          partner. Vi tar digitala produkter från ide till lansering och framåt.
-          Vare sig det är en e-shop, hemsida, app eller något helt annat.
-        </h1>
+        <h1>OHHI Webbyrå {pageContext.city}</h1>
+        <h2>
+          Vi hjälper <strong>stora</strong> som <strong>små</strong> företag att
+          lyckas på webben genom digital kommunikation, teknik och design.
+          Oavsett om det är en e-shop, hemsida, app eller något helt annat.
+        </h2>
       </IntroContainer>
       <ProjectsContainer>
-        <animated.span style={{...slideProjectText}}>Utvalda Projekt</animated.span>
+        <animated.span style={{ ...slideProjectText }}>
+          Utvalda Projekt
+        </animated.span>
         <div className="desktop">
           {slideInCards.map((style, index) => (
             <ProjectCard
               outsideOfWebsite={false}
               index={index}
-              key={index}
               style={style}
               link={projects[index].node.uid}
               title={projects[index].node.data.project_name.text}
@@ -153,35 +178,39 @@ const LandingPage = ({transitionStatus, location, entry, exit, data }) => {
             />
           ))}
         </div>
-        {typeof window !== 'undefined' && window.innerWidth < 901 ?
-        <div className="mobile">
-          <Flickity 
-            className={'slider'} // default ''
-            elementType={'section'} // default 'div'
-            // takes flickity options {}
-            disableImagesLoaded={false} // default false
-            static={true} // default false
-            options={{initialIndex: 0, cellAlign: 'left'}}
-            cellAlign = {'left'}
-          >
-            {slideInCards.map((style, index) => (
-              <ProjectCard
-                outsideOfWebsite={false}
-                index={index}
-                style={style}
-                link={projects[index].node.uid}
-                title={projects[index].node.data.project_name.text}
-                image={
-                  projects[index].node.data.thumbnail_image.localFile
-                    .childImageSharp.fluid
-                }
-                category={projects[index].node.data.category.text}
-              />
-            ))}
-          </Flickity>
-        </div> : ''}
+        {typeof window !== "undefined" && window.innerWidth < 901 ? (
+          <div className="mobile">
+            <Flickity
+              className={"slider"} // default ''
+              elementType={"section"} // default 'div'
+              // takes flickity options {}
+              disableImagesLoaded={false} // default false
+              static={true} // default false
+              options={{ initialIndex: 0, cellAlign: "left" }}
+              cellAlign={"left"}
+            >
+              {slideInCards.map((style, index) => (
+                <ProjectCard
+                  outsideOfWebsite={false}
+                  key={index}
+                  index={index}
+                  style={style}
+                  link={projects[index].node.uid}
+                  title={projects[index].node.data.project_name.text}
+                  image={
+                    projects[index].node.data.thumbnail_image.localFile
+                      .childImageSharp.fluid
+                  }
+                  category={projects[index].node.data.category.text}
+                />
+              ))}
+            </Flickity>
+          </div>
+        ) : (
+          ""
+        )}
       </ProjectsContainer>
-      <ContactBanner />
+      <ContactBanner city={pageContext.city} />
     </PageWrapper>
   )
 }
@@ -189,7 +218,7 @@ const LandingPage = ({transitionStatus, location, entry, exit, data }) => {
 export const query = graphql`
   {
     allPrismicProject(
-      filter: { tags: { eq: "ohhi" } lang: {eq: "sv-se"} }
+      filter: { tags: { eq: "ohhi" }, lang: { eq: "sv-se" } }
       sort: { fields: data___order }
     ) {
       edges {
@@ -200,9 +229,9 @@ export const query = graphql`
             category {
               text
             }
-          hero_image {
-            url
-          }
+            hero_image {
+              url
+            }
             thumbnail_image {
               localFile {
                 url
@@ -238,4 +267,4 @@ export const query = graphql`
   }
 `
 
-export default LandingPage;
+export default CityTemplate
