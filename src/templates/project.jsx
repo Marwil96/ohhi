@@ -80,9 +80,12 @@ const NextProject = styled.section`
   span {
     font-size: 1.8rem;
     font-weight: 300;
-    margin-bottom: 1.6rem;
+    margin-bottom: 0.6rem;
     color: white;
     z-index: 10;
+    font-weight: 500;
+    color: #e63a2e;
+    font-family: 'Fraunces';
   }
 
   a {
@@ -221,7 +224,7 @@ const Project = ({data, transitionStatus, location}) => {
         })}
       </ContentWrapper>
       <NextProject>
-        <span>Next Project</span>
+        <span>Nästa projekt</span>
         <TransitionLink
           to={`/projects/${nextProject.slug}`}
           exit={{ length: 0.5 }}
