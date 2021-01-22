@@ -42,8 +42,9 @@ const IntroContainer = styled(animated.div)`
     `}
 
     strong {
-      font-weight: 400;
+      font-weight: 500;
       color: #e63a2e;
+      font-family: 'Fraunces';
     }
   }
 `
@@ -94,11 +95,13 @@ const ProjectsContainer = styled.div`
     transform: rotate(-90deg);
     font-weight: 400;
     margin-bottom: 2rem;
+    font-weight: 500;
+    color: #e63a2e;
+    font-family: 'Fraunces';
 
     ${breakpoint.tabPort`
       position: absolute;
       font-size: 2.4rem;
-      color: ${colors.textWhite};
       transform: rotate(-90deg);
       left: -131px;
       top: 82px;
@@ -234,7 +237,6 @@ export const query = graphql`
             }
             thumbnail_image {
               localFile {
-                url
                 childImageSharp {
                   fluid {
                     tracedSVG

@@ -64,6 +64,11 @@ const RichTextWrapper = styled.section`
     padding: 2.4rem;
     padding-top: 0;
   }
+  h5 {
+    font-weight: 500;
+    color: #e63a2e;
+    font-family: 'Fraunces';
+  }
   iframe {
     width: 100%;
 

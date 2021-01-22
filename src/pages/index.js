@@ -34,8 +34,9 @@ const IntroContainer = styled(animated.div)`
     `}
 
     strong {
-      font-weight: 400;
+      font-weight: 500;
       color: #e63a2e;
+      font-family: 'Fraunces'
     }
   }
 `
@@ -87,11 +88,13 @@ const ProjectsContainer = styled.div`
     transform: rotate(-90deg);
     font-weight: 400;
     margin-bottom: 2rem;
+    font-weight: 500;
+    color: #e63a2e;
+    font-family: 'Fraunces';
 
     ${breakpoint.tabPort`
       position: absolute;
       font-size: 2.4rem;
-      color: ${colors.textWhite};
       transform: rotate(-90deg);
       left: -131px;
       top: 82px;
@@ -102,6 +105,7 @@ const ProjectsContainer = styled.div`
 
 const LandingPage = ({transitionStatus, location, entry, exit, data }) => {
   const projects = data.allPrismicProject.edges;
+  console.log(projects)
   const slideText = useSpring({config: {friction: 35}, from: {opacity: 0, transform: 'translateY(100px)'}, to:{opacity: 1, transform: 'translateY(0px)'}, delay: 500})
   const slideProjectText = useSpring({config: {friction: 35}, from: {opacity: 0, transform: 'translateY(100px) rotate(-90deg)'}, to:{opacity: 1, transform: 'translateY(0px) rotate(-90deg)'}, delay: 500})
   const slideInCards = useSprings(
@@ -205,7 +209,6 @@ export const query = graphql`
           }
             thumbnail_image {
               localFile {
-                url
                 childImageSharp {
                   fluid {
                     tracedSVG

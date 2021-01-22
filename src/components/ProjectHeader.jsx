@@ -50,6 +50,9 @@ const MetaItem = styled(animated.div)`
     font-size: 1.6rem;
     font-weight: 400;
     margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #e63a2e;
+    font-family: 'Fraunces';
   }
 
   h3 {

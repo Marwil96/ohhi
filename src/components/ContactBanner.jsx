@@ -25,6 +25,9 @@ const ContactBannerWrapper = styled.section`
     font-size: 2.4rem;
     margin-bottom: 1.2rem;
     font-weight: 600;
+    font-weight: 500;
+    color: #e63a2e;
+    font-family: 'Fraunces';
 
     ${breakpoint.tabPort`
       font-size: 3.2rem;
@@ -84,8 +87,8 @@ const ContactBannerWrapper = styled.section`
 
   h2 {
     text-align: right;
-    font-size: 3.2rem;
-    margin-bottom: 1.6rem;
+    font-size: 2.4rem;
+    margin-bottom: 0.6rem;
     font-weight: 400;
   }
 
@@ -95,6 +98,9 @@ const ContactBannerWrapper = styled.section`
     font-weight: 600;
     margin-bottom: 0;
     line-height: initial;
+    font-weight: 500;
+    color: #e63a2e;
+    font-family: 'Fraunces';
   }
 `
 
@@ -136,7 +142,7 @@ const ContactBanner = ({city}) => {
       </div>
 
       <div>
-        <h2>Kontors Tid</h2>
+        <h2>Kontors tid</h2>
         <span className="office_time">
           {`${date.getHours()}:${date.getMinutes()}`} CET
         </span>
