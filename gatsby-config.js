@@ -33,7 +33,7 @@ module.exports = {
       options: {
         fonts: [
           `Lato\:300,400,500,600,700`,
-          `Fraunces\:400,500`// you can also specify font weights and styles
+          `Fraunces\:500`// you can also specify font weights and styles
         ],
       },
     },
