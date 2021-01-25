@@ -84,8 +84,6 @@ const NextProject = styled.section`
     color: white;
     z-index: 10;
     font-weight: 500;
-    color: #e63a2e;
-    font-family: 'Fraunces';
   }
 
   a {
@@ -95,6 +93,7 @@ const NextProject = styled.section`
     z-index: 10;
     position: relative;
     width: fit-content;
+    font-family: "Fraunces";
 
     &:before {
       border-bottom: 3px solid #fff;
