@@ -13,6 +13,7 @@ export const Bubble = styled(animated.button)`
   padding: 1rem;
   top: -6vh;
   right: 1.6rem;
+  font-family: "fraunces";
 
   border-radius: 100%;
   background-color: ${colors.brightRed};
@@ -25,7 +26,8 @@ export const Bubble = styled(animated.button)`
   color: white;
   z-index: 150;
   cursor: pointer;
-  transition: background-color 0.5s ease, transform 0.45s cubic-bezier(0.17, 0.67, 0.3, 1.33);
+  transition: background-color 0.5s ease,
+    transform 0.45s cubic-bezier(0.17, 0.67, 0.3, 1.33);
   /* display: none; */
   ${breakpoint.tabPort`    
     top: -8vh;

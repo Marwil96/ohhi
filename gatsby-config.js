@@ -32,8 +32,8 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `Lato\:400,500`,
-          `Fraunces\:500`// you can also specify font weights and styles
+          `Manrope\:400,500, 600,800`,
+          `Fraunces\:500`, // you can also specify font weights and styles
         ],
       },
     },
