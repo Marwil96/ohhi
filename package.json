@@ -17,6 +17,7 @@
     "@mdx-js/mdx": "^1.6.16",
     "@mdx-js/react": "^1.6.16",
     "@mdx-js/tag": "^0.20.3",
+    "@nightborn/signum": "^1.0.6",
     "babel-plugin-styled-components": "^1.11.1",
     "flickity": "^2.2.2",
     "gatsby": "^2.24.50",
@@ -43,7 +44,6 @@
     "react-flickity-component": "^3.6.0",
     "react-helmet": "^6.1.0",
     "react-intersection-observer": "^8.28.4",
-    "react-slick": "^0.27.14",
     "react-spring": "^8.0.27",
     "styled-components": "^5.2.0"
   },
