@@ -10,25 +10,37 @@ import "@nightborn/signum/dist/index.css"
 
    const SendMail = ({message, email}) => {
     //  setLoading(true)
-     const data = { "text": `From: ${email} ${message}`, "access_token": "4yunhgn4t8q1lquqn82yxju7" }
-     fetch("https://postmail.invotes.com/send", {
-       method: "post",
-       headers: {
-         Authorization: `4yunhgn4t8q1lquqn82yxju7`,
-         "access_token": "4yunhgn4t8q1lquqn82yxju7",
-         "Access-Control-Allow-Origin": "*",
-         "Access-Control-Allow-Methods": "GET, PUT, POST, DELETE, OPTIONS",
-         "Content-Type": "application/x-www-form-urlencoded",
-       },
-       body: JSON.stringify(data),
-     })
-       .then(response => response.json())
-       .then(response => {
-         console.log(response)
-       })
-       .catch(error => {
-         console.log(error)
-       })
+    const formData = new FormData()
+      formData.append("from_name", `${email}`)
+      formData.append("message", `From: ${email} ${message}`)
+      formData.append("service_id", "service_oxvpo2i")
+      formData.append("template_id", "template_kfg9cnc")
+      formData.append("user_id", "user_qqNwSBDga7n491Bbxi50T")
+    // const data = { "text": `From: ${email} ${message}`, "access_token": "4yunhgn4t8q1lquqn82yxju7" }
+
+    fetch("https://api.emailjs.com/api/v1.0/email/send-form", {
+      method: "post",
+      headers: {
+        contentType: false, // auto-detection
+        processData: false, // no need to parse formData to string
+      },
+      contentType: false, // auto-detection
+      processData: false,
+      body: formData,
+    })
+      .then(res => res.text()) // convert to plain text
+      .then(text => console.log(text))
+      .catch(error => {
+        console.log(error)
+      })
+    //  emailjs.sendForm("dabf33f448d829e41fc273779547453f", "template_kfg9cnc", formData).then(
+    //    function (response) {
+    //      console.log("SUCCESS!", response.status, response.text)
+    //    },
+    //    function (error) {
+    //      console.log("FAILED...", error)
+    //    }
+    //  )
    }
 
 const defaultProps = {
