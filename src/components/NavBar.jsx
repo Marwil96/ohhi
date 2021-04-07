@@ -13,7 +13,7 @@ const NavBarWrapper = styled.section`
   justify-content: space-between;
   padding: 2.4rem 1.6rem 2.4rem 1.6rem;
   position: sticky;
-  z-index: 10000;
+  z-index: 1000;
   align-items: center;
   top: 0;
   left: 0;
